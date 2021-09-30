@@ -5,6 +5,8 @@ package ae.gov.sg.bookstore.web;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -52,7 +54,7 @@ public class CheckoutController {
 	 * @return the checkout result
 	 */
 	@PostMapping
-	public CheckoutResult checkout(@RequestBody final BasketDTO basket) {
+	public CheckoutResult checkout(@Valid @RequestBody final BasketDTO basket) {
 		return checkoutService.checkout(basket.getBooks(), basket.getPromotionCode());
 	}
 

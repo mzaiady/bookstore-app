@@ -5,6 +5,8 @@ package ae.gov.sg.bookstore.dto;
 
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * The Class BasketDTO.
  *
@@ -13,6 +15,7 @@ import java.util.List;
 public class BasketDTO {
 
 	/** The books. */
+	@NotNull(message = "'books' is Mandatory, list if books identifiers. e.g. [1,2,3]")
 	private List<Integer> books;
 	
 	/** The promotion code. */

@@ -16,6 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.web.servlet.MockMvc;
 
 /**
@@ -25,20 +27,13 @@ import org.springframework.test.web.servlet.MockMvc;
  */
 @SpringBootTest
 @AutoConfigureMockMvc
+@DirtiesContext(classMode = ClassMode.BEFORE_EACH_TEST_METHOD)
 class CheckoutControllerTest {
 	
 	/** The mock mvc. */
 	@Autowired
 	MockMvc mockMvc;
 
-	/**
-	 * Sets the up.
-	 *
-	 * @throws Exception the exception
-	 */
-	@BeforeEach
-	void setUp() throws Exception {
-	}
 
 	/**
 	 * Test method for {@link ae.gov.sg.bookstore.web.CheckoutController#checkout(java.util.List, java.lang.String)}.
@@ -50,7 +45,6 @@ class CheckoutControllerTest {
 		mockMvc.perform(get("/api/checkout/")
 				.param("books", "1,2,3")
 				.param("promotionCode", "PRO-420-000"))
-	    .andDo(print())
 		.andExpect(status().isOk());		
 	}
 	
@@ -64,7 +58,6 @@ class CheckoutControllerTest {
 		mockMvc.perform(get("/api/checkout/")
 				.queryParam("books", "1,2,3")
 				.queryParam("promotionCode", "PRO-420-000"))
-	    .andDo(print())
 		.andExpect(status().isOk());
 		
 	}

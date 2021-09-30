@@ -51,10 +51,10 @@ Build & Running as docker image
 
 Build image using the following command
 	
-		docker build bs_imgs .
+		docker build -t bs_img .
+		
+		docker run -p 8080:8080 bs_img 
+		
 
-or using SpringBoot support
-
-		./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=bs_spring_img
 	
 	
