@@ -37,8 +37,21 @@ Sample Request Body
  you can list available books using 
  		
  	GET	http://localhost:8080/api/books 
- 		
+ 
+###### Check out
 
+Using URL query paramters
+	GET http://localhost:8080/api/checkout?books=1,2,3&promotionCode=PRO-420-000
+	
+or using POST with data in request body
+
+	POST http://localhost:8080/api/checkout 
+
+	 {
+  	  "books":[1,2,3],
+          "promotionCode":"PRO-420-000"
+       }
+	
 Build & Running
 -----------------
 	
