@@ -4,7 +4,6 @@ Assumptions
 - For multiple authors, it will be comma separator text
 - No requirements to manage user-basket or order management, Only compute total cost is applied
 - Same Promotion code could be applicable/configurable to multiple classification
-- if multiple promotion applicable, use single promotion with the maximum value
 - Duplication in check-out list, we could have multiple approaches
 		
 		- Ignored 
